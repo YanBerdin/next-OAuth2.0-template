@@ -57,6 +57,21 @@ Then, open `.env.local` and add the missing environment variables:
 - `AUTH0_BASE_URL` - The base url of the application.
 - `AUTH0_SECRET` - Has to be at least 32 characters. You can use [this generator](https://generate-secret.vercel.app/32) to generate a value.
 
+**`AUTH0_SECRET`** est une clé secrète utilisée pour signer et vérifier les cookies de session.
+Générer une nouvelle clé secrète en utilisant un générateur de clé aléatoire.
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+Cela générera une chaîne aléatoire de 64 caractères à utiliser comme valeur pour `AUTH0_SECRET`.
+
+## Pour générr `authtoken` de Ngrok, localement, executer
+
+```bash
+./node_modules/.bin/ngrok config add-authtoken 2q2vkpCpK8RtWrP3FUnpiGw9h5G_3JmKdwYimaD4niXsQtU56
+```
+
 ## Deploy on Vercel
 
 You can deploy this app to the cloud with [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
